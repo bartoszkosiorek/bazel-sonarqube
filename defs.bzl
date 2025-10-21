@@ -241,9 +241,9 @@ _sonarqube = rule(
 )
 
 def sonarqube(
-        name,
         project_key,
         scm_info,
+        name = "sonarscan",
         coverage_report = None,
         project_name = None,
         srcs = [],
@@ -264,7 +264,10 @@ def sonarqube(
     to perform the analysis.
 
     Args:
-        name: Name of the target.
+    Args:
+        name: The name of the Bazel target created by this rule.
+            Default is `sonarscan`. It must be specified, with multiple
+            `sonarqube()` usages in the same package (`BUILD` file).
         project_key: SonarQube project key, e.g. `com.example.project:module`.
         scm_info: Source code metadata. For example, to include Git data from
             the workspace root, create a filegroup:

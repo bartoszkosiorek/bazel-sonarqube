@@ -72,9 +72,9 @@ To execute a SonarQube analysis of a Bazel project, two rules are provided:
 `sonarqube` and `sq_project`.
 
 The `sonarqube` rule creates an executable target which will generate SonarQube
-sonar-project.properties configuration files, and execute the CLI scanner.
+`sonar-project.properties` configuration files, and execute the CLI scanner.
 
-The `sq_project` rule provides the generation of sonar-project.properties
+The `sq_project` rule provides the generation of `sonar-project.properties`
 configuration, and can be used to create sub-module configurations to be
 included in a `sonarqube` target.
 
@@ -94,7 +94,6 @@ filegroup(
     name = "coverage_report",
     srcs = ["bazel-out/_coverage/_coverage_report.dat"], # Created manually
     tags = ["manual"],
-    visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -127,6 +126,10 @@ sonarqube(
     testonly = True,
 )
 ```
+
+The `name` attribute is target name. It is optional attribute, needed when
+multiple `sonarqube` is used in the same `BUILD` package.
+If not specified `sonarscan` target name is used.
 
 The `srcs` and `test_srcs` attributes may refer to individual files or
 `filegroup` targets.
