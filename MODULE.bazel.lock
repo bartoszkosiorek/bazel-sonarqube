@@ -78,9 +78,10 @@
     "https://bcr.bazel.build/modules/rules_java/7.10.0/MODULE.bazel": "530c3beb3067e870561739f1144329a21c851ff771cd752a49e06e3dc9c2e71a",
     "https://bcr.bazel.build/modules/rules_java/7.2.0/MODULE.bazel": "06c0334c9be61e6cef2c8c84a7800cef502063269a5af25ceb100b192453d4ab",
     "https://bcr.bazel.build/modules/rules_java/7.6.5/MODULE.bazel": "481164be5e02e4cab6e77a36927683263be56b7e36fef918b458d7a8a1ebadb1",
+    "https://bcr.bazel.build/modules/rules_java/8.11.0/MODULE.bazel": "c3d280bc5ff1038dcb3bacb95d3f6b83da8dd27bba57820ec89ea4085da767ad",
+    "https://bcr.bazel.build/modules/rules_java/8.11.0/source.json": "302b52a39259a85aa06ca3addb9787864ca3e03b432a5f964ea68244397e7544",
     "https://bcr.bazel.build/modules/rules_java/8.3.2/MODULE.bazel": "7336d5511ad5af0b8615fdc7477535a2e4e723a357b6713af439fe8cf0195017",
     "https://bcr.bazel.build/modules/rules_java/8.5.1/MODULE.bazel": "d8a9e38cc5228881f7055a6079f6f7821a073df3744d441978e7a43e20226939",
-    "https://bcr.bazel.build/modules/rules_java/8.5.1/source.json": "db1a77d81b059e0f84985db67a22f3f579a529a86b7997605be3d214a0abe38e",
     "https://bcr.bazel.build/modules/rules_jvm_external/4.4.2/MODULE.bazel": "a56b85e418c83eb1839819f0b515c431010160383306d13ec21959ac412d2fe7",
     "https://bcr.bazel.build/modules/rules_jvm_external/5.1/MODULE.bazel": "33f6f999e03183f7d088c9be518a63467dfd0be94a11d0055fe2d210f89aa909",
     "https://bcr.bazel.build/modules/rules_jvm_external/6.3/MODULE.bazel": "c998e060b85f71e00de5ec552019347c8bca255062c990ac02d051bb80a38df0",
@@ -122,8 +123,8 @@
   "moduleExtensions": {
     "//:extensions.bzl%non_module_dependencies": {
       "general": {
-        "bzlTransitiveDigest": "xgLtSKh3upK52d8wpTBZlKNrF080x72Pn7kSXGwdY7I=",
-        "usagesDigest": "j+JZRbiLRto+oA+uDWRJwNZh/8I1K9ujb/xw9tlvN+o=",
+        "bzlTransitiveDigest": "oDaJuJ+BLNuDQWepSn3GBtK9rQ2pSaZr/4gKoWW2KRU=",
+        "usagesDigest": "0x9vChe01Yr8CE1kNjx4vbvGG3h0gAuuP4kMK44eY6w=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -133,11 +134,11 @@
             "ruleClassName": "http_archive",
             "attributes": {
               "build_file": "@@//:BUILD.sonar_scanner",
-              "sha256": "f0c10b64e6b9bf2a9f65c3abacfb04522d36e14b3a4edb87e48a9af84ca4260d",
-              "strip_prefix": "sonar-scanner-4.8.1.3023",
+              "sha256": "2f10fe6ac36213958201a67383c712a587e3843e32ae1edf06f01062d6fd1407",
+              "strip_prefix": "sonar-scanner-5.0.2.4997",
               "urls": [
-                "https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/4.8.1.3023/sonar-scanner-cli-4.8.1.3023.zip",
-                "https://jcenter.bintray.com/org/sonarsource/scanner/cli/sonar-scanner-cli/4.8.1.3023/sonar-scanner-cli-4.8.1.3023.zip"
+                "https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/5.0.2.4997/sonar-scanner-cli-5.0.2.4997.zip",
+                "https://jcenter.bintray.com/org/sonarsource/scanner/cli/sonar-scanner-cli/5.0.2.4997/sonar-scanner-cli-5.0.2.4997.zip"
               ]
             }
           },
@@ -146,10 +147,10 @@
             "ruleClassName": "http_archive",
             "attributes": {
               "urls": [
-                "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.6.1/bazel-skylib-1.6.1.tar.gz",
-                "https://github.com/bazelbuild/bazel-skylib/releases/download/1.6.1/bazel-skylib-1.6.1.tar.gz"
+                "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.8.1/bazel-skylib-1.8.1.tar.gz",
+                "https://github.com/bazelbuild/bazel-skylib/releases/download/1.8.1/bazel-skylib-1.8.1.tar.gz"
               ],
-              "sha256": "9f38886a40548c6e96c106b752f242130ee11aaa068a56ba7e56f4511f33e4f2"
+              "sha256": "51b5105a760b353773f904d2bbc5e664d0987fbaf22265164de65d43e910d8ac"
             }
           },
           "bazel_version": {
@@ -210,29 +211,6 @@
           }
         },
         "recordedRepoMappingEntries": []
-      }
-    },
-    "@@rules_java~//java:rules_java_deps.bzl%compatibility_proxy": {
-      "general": {
-        "bzlTransitiveDigest": "KIX40nDfygEWbU+rq3nYpt3tVgTK/iO8PKh5VMBlN7M=",
-        "usagesDigest": "pwHZ+26iLgQdwvdZeA5wnAjKnNI3y6XO2VbhOTeo5h8=",
-        "recordedFileInputs": {},
-        "recordedDirentsInputs": {},
-        "envVariables": {},
-        "generatedRepoSpecs": {
-          "compatibility_proxy": {
-            "bzlFile": "@@rules_java~//java:rules_java_deps.bzl",
-            "ruleClassName": "_compatibility_proxy_repo_rule",
-            "attributes": {}
-          }
-        },
-        "recordedRepoMappingEntries": [
-          [
-            "rules_java~",
-            "bazel_tools",
-            "bazel_tools"
-          ]
-        ]
       }
     },
     "@@rules_kotlin~//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
