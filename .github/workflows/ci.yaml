@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: bazel-contrib/setup-bazel@0.15.0
 
-      - name: bazel build
+      - name: sonar canner build
         run: |
           bazel build //:sonar_scanner
           bazel build //:sonarqube_coverage_generator
@@ -30,24 +30,24 @@ jobs:
       #   run: |
       #     bazel aquery ...
 
-  test-workspace:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         folder:
           - examples/java-workspace
-          # - examples/java-bzlmod
+          - examples/java-bzlmod
     steps:
       - uses: actions/checkout@v5
       - uses: bazel-contrib/setup-bazel@0.15.0
 
-      - name: bazel test coverage
+      - name: test coverage
         working-directory: ${{ matrix.folder }}
         run: |
           bazel coverage //...
           bazel build //:sonarqube
 
-      - name: bazel sonarqube report
+      - name: sonarqube report
         working-directory: ${{ matrix.folder }}
         # TODO We don't have sonar server to send scan results
         continue-on-error: True
