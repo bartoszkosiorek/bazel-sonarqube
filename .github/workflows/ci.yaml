@@ -13,22 +13,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: bazel-contrib/setup-bazel@0.15.0
 
       - name: bazel build
-        run: >-
-          bazel
-          build
-          //:sonar_scanner
-          //:sonarqube_coverage_generator
+        run: |
+          bazel build //:sonar_scanner
+          bazel build //:sonarqube_coverage_generator
 
-      # TODO Building //docs:docs is not working correctly
+      # TODO Building //docs:docs has missing dependencies to rules_java
+      # and it is failing
       # - name: bazel aquery
-      #   run: >-
-      #     bazel
-      #     aquery
-      #     ...
+      #   run: |
+      #     bazel aquery ...
+
+  test-workspace:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder:
+          - examples/java-workspace
+          # - examples/java-bzlmod
+    steps:
+      - uses: actions/checkout@v5
+      - uses: bazel-contrib/setup-bazel@0.15.0
+
+      - name: bazel test coverage
+        working-directory: ${{ matrix.folder }}
+        run: |
+          bazel coverage //...
+
+      - name: bazel sonarqube report
+        working-directory: ${{ matrix.folder }}
+        # TODO We don't have sonar server to send scan results
+        continue-on-error: True
+        run: |
+          bazel run //:sonarqube
+          
