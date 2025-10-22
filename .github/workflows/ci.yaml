@@ -45,6 +45,7 @@ jobs:
         working-directory: ${{ matrix.folder }}
         run: |
           bazel coverage //...
+          bazel build //:sonarqube
 
       - name: bazel sonarqube report
         working-directory: ${{ matrix.folder }}
